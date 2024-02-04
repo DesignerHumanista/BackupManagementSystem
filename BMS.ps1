@@ -10,8 +10,19 @@ $mainForm.BackColor = [System.Drawing.ColorTranslator]::FromHtml("#23214B")
 #Create username box panel
 $userNameBox = New-Object System.Windows.Forms.Panel
 $userNameBox.Size = New-Object System.Drawing.Size(235, 75)
-$userNameBox.Location = New-Object System.Drawing.Point(0, 0)  # Set the location to the left
+$userNameBox.Location = New-Object System.Drawing.Point(0, 0)  #Set the location to the left
 $userNameBox.BackColor = [System.Drawing.ColorTranslator]::FromHtml("#141536")
+
+#Set user's name in the userNameBox
+$login = New-Object System.Windows.Forms.Label
+$login.Text = $env:COMPUTERNAME #Get current name of the user from environment variable
+$login.ForeColor = [System.Drawing.Color]::White
+$centerX = ($userNameBox.Width - $login.Width) / 2 #Get center of x axis
+$centerY = ($userNameBox.Height - $login.Height) / 2 #Get center of y axis
+$login.Location = New-Object System.Drawing.Point($centerX, $centerY) #Set label in the center
+$login.Size = New-Object System.Drawing.Size(110, 30) #Set size of whole box with label
+$login.Font = New-Object System.Drawing.Font("Arial", 10, [System.Drawing.FontStyle]::Bold)  #Set size and font style
+$userNameBox.Controls.Add($login)
 
 #Create header panel
 $header = New-Object System.Windows.Forms.Panel
