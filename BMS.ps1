@@ -30,6 +30,17 @@ $header.Size = New-Object System.Drawing.Size(765, 75) #We set width and height 
 $header.Location = New-Object System.Drawing.Point($userNameBox.Width, 0)  #Set the location to the right of the username box
 $header.BackColor = [System.Drawing.ColorTranslator]::FromHtml("#191A3F")
 
+#Set app's name in the header
+$appName = New-Object System.Windows.Forms.Label
+$appName.Text = "Backup Management System" #Get current name of the user from environment variable
+$appName.ForeColor = [System.Drawing.Color]::White
+$centerX = ($header.Width - $appName.Width) / 2 #Get center of x axis
+$centerY = ($header.Height - $appName.Height) / 2 #Get center of y axis
+$appName.Location = New-Object System.Drawing.Point(180, 20) #Set label in the center
+$appName.Size = New-Object System.Drawing.Size(510, 100) #Set size of the whole box with label
+$appName.Font = New-Object System.Drawing.Font("Arial", 16, [System.Drawing.FontStyle]::Bold)  #Set size and font style
+$header.Controls.Add($appName)
+
 #Add controls to the main form
 $mainForm.Controls.Add($userNameBox)
 $mainForm.Controls.Add($header)
