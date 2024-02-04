@@ -64,9 +64,11 @@ function ClickSimplyBackup()
     $simplyBackupForm = New-Object Windows.Forms.Form
     $simplyBackupForm.Text = "Simply Backup"
     $simplyBackupForm.Size = New-Object Drawing.Size(500, 200)
+    $simplyBackupForm.BackColor = [System.Drawing.ColorTranslator]::FromHtml("#141536") #Set background color
 
     $labelSource = New-Object Windows.Forms.Label
     $labelSource.Text = "Source path:"
+    $labelSource.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#ffffff") #Set text color
     $labelSource.Location = New-Object Drawing.Point(20, 20)
     $labelSource.Size = New-Object Drawing.Size(100, 30)
     $simplyBackupForm.Controls.Add($labelSource)
@@ -78,6 +80,7 @@ function ClickSimplyBackup()
 
     $labelDestination = New-Object Windows.Forms.Label
     $labelDestination.Text = "Destination path:"
+    $labelDestination.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#ffffff") #Set text color
     $labelDestination.Location = New-Object Drawing.Point(20, 50)
     $labelDestination.Size = New-Object Drawing.Size(100, 30)
     $simplyBackupForm.Controls.Add($labelDestination)
@@ -89,6 +92,7 @@ function ClickSimplyBackup()
 
     $buttonBrowseSource = New-Object Windows.Forms.Button
     $buttonBrowseSource.Text = "Browse"
+    $buttonBrowseSource.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#ffffff") #Set text color
     $buttonBrowseSource.Add_Click({
     $folderBrowser = New-Object Windows.Forms.FolderBrowserDialog
 
@@ -106,6 +110,7 @@ function ClickSimplyBackup()
 
     $buttonBrowseDestination = New-Object Windows.Forms.Button
     $buttonBrowseDestination.Text = "Browse"
+    $buttonBrowseDestination.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#ffffff") #Set text color
     $buttonBrowseDestination.Add_Click({
     $folderBrowser = New-Object Windows.Forms.FolderBrowserDialog
     $result = $folderBrowser.ShowDialog()
@@ -121,6 +126,8 @@ function ClickSimplyBackup()
 
     $buttonBackup = New-Object Windows.Forms.Button
     $buttonBackup.Text = "Backup"
+    $buttonBackup.ForeColor = [System.Drawing.ColorTranslator]::FromHtml("#ffffff") #Set text color
+
     $buttonBackup.Add_Click({
     $sourcePath = $textBoxSource.Text
     $destinationPath = $textBoxDestination.Text
